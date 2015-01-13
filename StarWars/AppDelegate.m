@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "YOSStarWarsCharacter.h"
 #import "YOSCharacterViewController.h"
+#import "YOSWikiViewController.h"
 
 
 
@@ -48,7 +49,9 @@
     
     YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:vader];
     
-    self.window.rootViewController = charVC;
+    YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc] initWithModel:vader];
+    
+    self.window.rootViewController = wikiVC;
     
     
     return YES;

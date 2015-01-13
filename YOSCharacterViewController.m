@@ -31,13 +31,15 @@
 {
     [super viewWillAppear:animated];
     
+    
+    
     [self syncModelToView];
 }
 
 
 - (void) syncModelToView
 {
-    self.imPhoto = self.model.photo;
+    self.imPhoto.image = self.model.photo;
 }
 
 

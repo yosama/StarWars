@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA081A651AB7003E54DA /* CafPlayer.m */; };
+		DBD6DA0E1A6520C9003E54DA /* YOSWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA0C1A6520C9003E54DA /* YOSWikiViewController.m */; };
+		DBD6DA0F1A6520C9003E54DA /* YOSWikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBD6DA0D1A6520C9003E54DA /* YOSWikiViewController.xib */; };
 		DBFE63EF1A63E507009591B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFE63EE1A63E507009591B6 /* main.m */; };
 		DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFE63F11A63E507009591B6 /* AppDelegate.m */; };
 		DBFE63F41A63E507009591B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFE63F31A63E507009591B6 /* Images.xcassets */; };
@@ -47,6 +49,9 @@
 /* Begin PBXFileReference section */
 		DBD6DA071A651AB7003E54DA /* CafPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CafPlayer.h; sourceTree = "<group>"; };
 		DBD6DA081A651AB7003E54DA /* CafPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CafPlayer.m; sourceTree = "<group>"; };
+		DBD6DA0B1A6520C9003E54DA /* YOSWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSWikiViewController.h; sourceTree = "<group>"; };
+		DBD6DA0C1A6520C9003E54DA /* YOSWikiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOSWikiViewController.m; sourceTree = "<group>"; };
+		DBD6DA0D1A6520C9003E54DA /* YOSWikiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YOSWikiViewController.xib; sourceTree = "<group>"; };
 		DBFE63E91A63E507009591B6 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFE63ED1A63E507009591B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBFE63EE1A63E507009591B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +184,9 @@
 		DBFE64151A63F792009591B6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBD6DA0B1A6520C9003E54DA /* YOSWikiViewController.h */,
+				DBD6DA0C1A6520C9003E54DA /* YOSWikiViewController.m */,
+				DBD6DA0D1A6520C9003E54DA /* YOSWikiViewController.xib */,
 				DBFE64101A63F702009591B6 /* YOSCharacterViewController.h */,
 				DBFE64111A63F702009591B6 /* YOSCharacterViewController.m */,
 				DBFE64121A63F702009591B6 /* YOSCharacterViewController.xib */,
@@ -293,6 +301,7 @@
 				DBFE64311A640A49009591B6 /* R2-D2.jpg in Resources */,
 				DBFE64331A640A49009591B6 /* tarkin.jpg in Resources */,
 				DBFE64271A640A49009591B6 /* c3po.jpg in Resources */,
+				DBD6DA0F1A6520C9003E54DA /* YOSWikiViewController.xib in Resources */,
 				DBFE642F1A640A49009591B6 /* palpatine.jpg in Resources */,
 				DBFE64321A640A49009591B6 /* tarkin.caf in Resources */,
 				DBFE64141A63F702009591B6 /* YOSCharacterViewController.xib in Resources */,
@@ -327,6 +336,7 @@
 			files = (
 				DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */,
 				DBFE640E1A63F097009591B6 /* YOSStarWarsCharacter.m in Sources */,
+				DBD6DA0E1A6520C9003E54DA /* YOSWikiViewController.m in Sources */,
 				DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */,
 				DBFE64131A63F702009591B6 /* YOSCharacterViewController.m in Sources */,
 				DBFE63EF1A63E507009591B6 /* main.m in Sources */,

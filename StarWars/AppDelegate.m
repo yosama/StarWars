@@ -54,11 +54,14 @@
     
     YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc] initWithModel:vader];
     
-    // Creamos los combinadores
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    [tabVC setViewControllers:@[charVC,wikiVC]];
+    UINavigationController *navigationVC = [[UINavigationController alloc] init];
+    [navigationVC pushViewController:charVC animated:NO];
     
-    self.window.rootViewController = tabVC;
+    // Creamos los combinadores
+//    UITabBarController *tabVC = [[UITabBarController alloc] init];
+//    [tabVC setViewControllers:@[charVC,wikiVC]];
+    
+    self.window.rootViewController = navigationVC;
     
     
     return YES;

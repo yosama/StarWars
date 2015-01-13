@@ -16,16 +16,18 @@
 
 
 @property (strong, nonatomic) YOSStarWarsCharacter *model;
-@property (weak , nonatomic)IBOutlet UILabel *lbName;
-@property (weak, nonatomic) IBOutlet UILabel *lbAlias;
+//@property (weak , nonatomic)IBOutlet UILabel *lbName;
+//@property (weak, nonatomic) IBOutlet UILabel *lbAlias;
 @property (strong, nonatomic) NSURL *lbWikiPage;
 @property (weak, nonatomic) IBOutlet UIImageView *imPhoto;
 @property (strong, nonatomic) NSData *soundData;
 @property (strong, nonatomic) CafPlayer *player;
 
 
+
 -(IBAction)playSound:(id)sender;
 
+-(IBAction)displayWikipedia:(id)sender;
 
 
 -(id) initWithModel:(YOSStarWarsCharacter *)model;

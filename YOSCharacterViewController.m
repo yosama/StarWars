@@ -8,6 +8,7 @@
 
 #import "YOSCharacterViewController.h"
 #import "CafPlayer.h"
+#import "YOSWikiViewController.h"
 
 
 
@@ -32,8 +33,6 @@
 {
     [super viewWillAppear:animated];
     
-    
-    
     [self syncModelToView];
 }
 
@@ -54,7 +53,12 @@
 }
 
 
-
+-(IBAction)displayWikipedia:(id)sender{
+    
+    YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc]initWithModel:self.model ];
+    [self.navigationController pushViewController:wikiVC
+                                         animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

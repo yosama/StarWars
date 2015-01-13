@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "YOSStarWarsCharacter.h"
+#import "YOSCharacterViewController.h"
 
 
 
@@ -21,6 +23,34 @@
     self.window.backgroundColor = [UIColor orangeColor];
     // La activamos
     [self.window makeKeyAndVisible];
+    
+    // controlador principal
+    
+    
+    NSURL *vaderURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+    
+    NSBundle *bundle = [NSBundle mainBundle];
+    
+    NSURL *soundURL = [bundle URLForResource:@"vader"
+                               withExtension:@"caf"];
+    NSData *vaderSound = [NSData dataWithContentsOfURL:soundURL];
+    
+    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg"];
+    
+    
+    
+    YOSStarWarsCharacter *vader = [YOSStarWarsCharacter StarWarsWithName:@"Anakin SkyWalker"
+                                                                   alias:@"Darth Vader"
+                                                                wikiPage:vaderURL
+                                                                   photo:vaderImage
+                                                               soundData:vaderSound];
+    
+    
+    YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:vader];
+    
+    self.window.rootViewController = charVC;
+    
+    
     return YES;
 }
 

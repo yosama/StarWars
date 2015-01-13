@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA081A651AB7003E54DA /* CafPlayer.m */; };
 		DBFE63EF1A63E507009591B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFE63EE1A63E507009591B6 /* main.m */; };
 		DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFE63F11A63E507009591B6 /* AppDelegate.m */; };
 		DBFE63F41A63E507009591B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBFE63F31A63E507009591B6 /* Images.xcassets */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DBD6DA071A651AB7003E54DA /* CafPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CafPlayer.h; sourceTree = "<group>"; };
+		DBD6DA081A651AB7003E54DA /* CafPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CafPlayer.m; sourceTree = "<group>"; };
 		DBFE63E91A63E507009591B6 /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBFE63ED1A63E507009591B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBFE63EE1A63E507009591B6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,9 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DBD6DA0A1A651AC3003E54DA /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				DBD6DA071A651AB7003E54DA /* CafPlayer.h */,
+				DBD6DA081A651AB7003E54DA /* CafPlayer.m */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		DBFE63E01A63E507009591B6 = {
 			isa = PBXGroup;
 			children = (
+				DBD6DA0A1A651AC3003E54DA /* Sound */,
 				DBFE64161A6409D3009591B6 /* Resources */,
 				DBFE64151A63F792009591B6 /* Controllers */,
 				DBFE640F1A63F09F009591B6 /* Models */,
@@ -314,6 +327,7 @@
 			files = (
 				DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */,
 				DBFE640E1A63F097009591B6 /* YOSStarWarsCharacter.m in Sources */,
+				DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */,
 				DBFE64131A63F702009591B6 /* YOSCharacterViewController.m in Sources */,
 				DBFE63EF1A63E507009591B6 /* main.m in Sources */,
 			);
@@ -500,6 +514,7 @@
 				DBFE64081A63E508009591B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DBFE64091A63E508009591B6 /* Build configuration list for PBXNativeTarget "StarWarsTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +523,7 @@
 				DBFE640B1A63E508009591B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

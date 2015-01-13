@@ -7,6 +7,7 @@
 //
 
 #import "YOSCharacterViewController.h"
+#import "CafPlayer.h"
 
 
 
@@ -44,6 +45,9 @@
 
 -(IBAction)playSound:(id)sender{
     NSLog(@" I am your father!");
+    
+    self.player = [CafPlayer cafPlayer];
+    [self.player playSoundData:self.model.soundData];
 }
 
 

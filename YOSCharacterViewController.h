@@ -9,6 +9,7 @@
 
 @import UIKit;
 #import "YOSStarWarsCharacter.h"
+#import "CafPlayer.h"
 
 
 @interface YOSCharacterViewController : UIViewController
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) NSURL *lbWikiPage;
 @property (weak, nonatomic) IBOutlet UIImageView *imPhoto;
 @property (strong, nonatomic) NSData *soundData;
+@property (strong, nonatomic) CafPlayer *player;
 
 
 -(IBAction)playSound:(id)sender;

@@ -46,12 +46,19 @@
                                                                    photo:vaderImage
                                                                soundData:vaderSound];
     
+   
+    
+    
     
     YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:vader];
     
     YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc] initWithModel:vader];
     
-    self.window.rootViewController = wikiVC;
+    // Creamos los combinadores
+    UITabBarController *tabVC = [[UITabBarController alloc] init];
+    [tabVC setViewControllers:@[charVC,wikiVC]];
+    
+    self.window.rootViewController = tabVC;
     
     
     return YES;

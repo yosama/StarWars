@@ -29,6 +29,7 @@
     if (self = [super initWithNibName:nil bundle:nil]){
         
         _model = model;
+        self.title =@"wikipedia";
     }
     return self;
 }
@@ -50,7 +51,7 @@
     
     self.browser.delegate = self;
     
-    [self.browser loadRequest:[NSURLRequest requestWithURL:self.model.wikiPage]];
+    [self.browser loadRequest:[ NSURLRequest requestWithURL:self.model.wikiPage]];
 }
 
 

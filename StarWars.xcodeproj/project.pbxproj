@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DBA0E4741A6676C000214AEC /* YOSStarWarsUniverse.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA0E4731A6676C000214AEC /* YOSStarWarsUniverse.m */; };
 		DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA081A651AB7003E54DA /* CafPlayer.m */; };
 		DBD6DA0E1A6520C9003E54DA /* YOSWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA0C1A6520C9003E54DA /* YOSWikiViewController.m */; };
 		DBD6DA0F1A6520C9003E54DA /* YOSWikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBD6DA0D1A6520C9003E54DA /* YOSWikiViewController.xib */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DBA0E4721A6676C000214AEC /* YOSStarWarsUniverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSStarWarsUniverse.h; sourceTree = "<group>"; };
+		DBA0E4731A6676C000214AEC /* YOSStarWarsUniverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOSStarWarsUniverse.m; sourceTree = "<group>"; };
 		DBD6DA071A651AB7003E54DA /* CafPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CafPlayer.h; sourceTree = "<group>"; };
 		DBD6DA081A651AB7003E54DA /* CafPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CafPlayer.m; sourceTree = "<group>"; };
 		DBD6DA0B1A6520C9003E54DA /* YOSWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSWikiViewController.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 			children = (
 				DBFE640C1A63F097009591B6 /* YOSStarWarsCharacter.h */,
 				DBFE640D1A63F097009591B6 /* YOSStarWarsCharacter.m */,
+				DBA0E4721A6676C000214AEC /* YOSStarWarsUniverse.h */,
+				DBA0E4731A6676C000214AEC /* YOSStarWarsUniverse.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 			files = (
 				DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */,
 				DBFE640E1A63F097009591B6 /* YOSStarWarsCharacter.m in Sources */,
+				DBA0E4741A6676C000214AEC /* YOSStarWarsUniverse.m in Sources */,
 				DBD6DA0E1A6520C9003E54DA /* YOSWikiViewController.m in Sources */,
 				DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */,
 				DBFE64131A63F702009591B6 /* YOSCharacterViewController.m in Sources */,

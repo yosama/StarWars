@@ -20,10 +20,10 @@
 
 // Class methods
 
-+(instancetype) StarWarsWithName:(NSString*) pName alias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData;
++(instancetype) starWarsWithName:(NSString*) pName alias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData;
 
 
-+(instancetype) StarWarsWithAlias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData;
++(instancetype) starWarsWithAlias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData;
 
 
 // Designated

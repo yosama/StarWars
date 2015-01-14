@@ -11,7 +11,6 @@
 #import "YOSWikiViewController.h"
 
 
-
 @implementation YOSCharacterViewController
 
 
@@ -54,17 +53,34 @@
 
 
 -(IBAction)displayWikipedia:(id)sender{
-    
+    // Creo un WebViewController
     YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc]initWithModel:self.model ];
+    
+    // Le paso el webViewController al navigationController
     [self.navigationController pushViewController:wikiVC
                                          animated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
 
+
+#pragma mark - UISplitViewControllerDelegate
+
+-(void) splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode {
+    
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden){
+        //Pongo boton en barra de navegacion
+        self.navigationItem.rightBarButtonItem = svc.displayModeButtonItem;
+        
+    }else if (displayMode == UISplitViewControllerDisplayModeAllVisible){
+        // Quito boton de la barra de navegacion(pareado incluido)
+        self.navigationItem.rightBarButtonItem = nil;
+    }
+}
 
 
 @end

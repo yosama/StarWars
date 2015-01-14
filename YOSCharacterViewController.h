@@ -12,24 +12,21 @@
 #import "CafPlayer.h"
 
 
-@interface YOSCharacterViewController : UIViewController
+
+@interface YOSCharacterViewController : UIViewController <UISplitViewControllerDelegate>
 
 
 @property (strong, nonatomic) YOSStarWarsCharacter *model;
-//@property (weak , nonatomic)IBOutlet UILabel *lbName;
-//@property (weak, nonatomic) IBOutlet UILabel *lbAlias;
-@property (strong, nonatomic) NSURL *lbWikiPage;
 @property (weak, nonatomic) IBOutlet UIImageView *imPhoto;
 @property (strong, nonatomic) NSData *soundData;
 @property (strong, nonatomic) CafPlayer *player;
 
 
+-(id) initWithModel:(YOSStarWarsCharacter *)model;
 
 -(IBAction)playSound:(id)sender;
-
 -(IBAction)displayWikipedia:(id)sender;
 
 
--(id) initWithModel:(YOSStarWarsCharacter *)model;
 
 @end

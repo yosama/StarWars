@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 yos. All rights reserved.
 //
 
-#import "AppDelegate.h"
-#import "YOSStarWarsCharacter.h"
-#import "YOSCharacterViewController.h"
-#import "YOSWikiViewController.h"
 
+#import "AppDelegate.h"
+#import "YOSStarWarsUniverse.h"
+#import "YOSStarWarsUniverseViewController.h"
+#import "YOSCharacterViewController.h"
 
 
 @implementation AppDelegate
@@ -20,46 +20,41 @@
     
     // Creamos una Window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     //Damos color a la ventana
     self.window.backgroundColor = [UIColor orangeColor];
+    
+    // Creo el modelo
+    YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
+    
+    //Creo el controlador
+    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]
+                                                     initWithModel:model
+                                                     style:UITableViewStylePlain];
+    
+    YOSCharacterViewController *charcVC = [[YOSCharacterViewController alloc]
+                                           initWithModel:[model imperialCharacterAtIndex:0]];
+    
+    // Creo los combinadores
+    UINavigationController *tableNav = [[UINavigationController alloc] init];
+    [tableNav pushViewController:universeVC
+                        animated:NO];
+    
+    UINavigationController *charNav = [[UINavigationController alloc] init];
+    [charNav pushViewController:charcVC
+                       animated:NO];
+    
+    // Le paso al splitVC los combinadores creados
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    [splitVC setViewControllers:@[tableNav,charNav]];
+    
+    // Asigno el delegado
+    splitVC.delegate = charcVC;
+    
+    self.window.rootViewController = splitVC;
+    
     // La activamos
     [self.window makeKeyAndVisible];
-    
-    // controlador principal
-    
-//    
-//    NSURL *vaderURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-//    
-//    NSBundle *bundle = [NSBundle mainBundle];
-//    
-//    NSURL *soundURL = [bundle URLForResource:@"vader"
-//                               withExtension:@"caf"];
-//    NSData *vaderSound = [NSData dataWithContentsOfURL:soundURL];
-//    
-//    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg"];
-//    
-//    
-//    
-//    YOSStarWarsCharacter *vader = [YOSStarWarsCharacter StarWarsWithName:@"Anakin SkyWalker"
-//                                                                   alias:@"Darth Vader"
-//                                                                wikiPage:vaderURL
-//                                                                   photo:vaderImage
-//                                                               soundData:vaderSound];
-//
-//    
-//    YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:vader];
-//    
-//    YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc] initWithModel:vader];
-//    
-//    UINavigationController *navigationVC = [[UINavigationController alloc] init];
-//    [navigationVC pushViewController:charVC animated:NO];
-    
-    // Creamos los combinadores
-    UITabBarController *tabVC = [[UITabBarController alloc] init];
-    [tabVC setViewControllers: [self arrayOfControllers]];
-    
-    self.window.rootViewController = tabVC;
-    
     
     return YES;
 }
@@ -98,123 +93,123 @@
 
 
 
-#pragma mark - Utils
+//#pragma mark - Utils
 
--(NSArray*) arrayOfModels
-{
-        //crear personajes
-    
-    NSBundle *bundle = [NSBundle mainBundle];
-    
-    NSURL *vaderURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    
-    
-    NSURL *vaderSoundURL = [bundle URLForResource:@"vader"
-                               withExtension:@"caf"];
-    NSData *vaderSound = [NSData dataWithContentsOfURL:vaderSoundURL];
-    
-    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg"];
-    
-    
-    
-    YOSStarWarsCharacter *vader = [YOSStarWarsCharacter StarWarsWithName:@"Anakin SkyWalker"
-                                                                   alias:@"Darth Vader"
-                                                                wikiPage:vaderURL
-                                                                   photo:vaderImage
-                                                               soundData:vaderSound];
-    
-
-    // C3-PO
-    
-    NSURL *c3poURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    
-    NSURL *c3poSoundURL = [bundle URLForResource:@"c3po"
-                               withExtension:@"caf"];
-    NSData *c3poSound = [NSData dataWithContentsOfURL:c3poSoundURL];
-    
-    UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg"];
-    
-    
-    
-    YOSStarWarsCharacter *c3po = [YOSStarWarsCharacter StarWarsWithAlias:@"C -3PO"
-                                                                wikiPage:c3poURL                                                                   photo:c3poImage
-                                                               soundData:c3poSound];
-    
-    // R2
-    
-    NSURL *r2URL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    
-    NSURL *r2SoundURL = [bundle URLForResource:@"r2-d2"
-                                   withExtension:@"caf"];
-    NSData *r2Sound = [NSData dataWithContentsOfURL:r2SoundURL];
-    
-    UIImage *r2Image = [UIImage imageNamed:@"R2-D2.jpg"];
-    
-    
-    
-    YOSStarWarsCharacter *r2 = [YOSStarWarsCharacter StarWarsWithAlias:@"R2"
-                                                                wikiPage:r2URL                                                                   photo:r2Image
-                                                               soundData:r2Sound];
-    
-    
-    
-    //Chewie
-    
-    NSURL *chewieURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-    
-    NSURL *chewieSoundURL = [bundle URLForResource:@"chewbacca"
-                                   withExtension:@"caf"];
-    NSData *chewieSound = [NSData dataWithContentsOfURL:chewieSoundURL];
-    
-    UIImage *chewieImage = [UIImage imageNamed:@"chewbacca.jpg"];
-    
-    
-    
-    YOSStarWarsCharacter *chewbacca = [YOSStarWarsCharacter StarWarsWithAlias:@"Chewbacca"
-                                                                wikiPage:chewieURL                                                                   photo:chewieImage
-                                                               soundData:chewieSound];
-    
-
-//    //Yoda
-//    
-//    NSURL *yodaURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
-//    
-//    NSURL *yodaSoundURL = [bundle URLForResource:@"chewbacca"
-//                                     withExtension:@"caf"];
-//    NSData *yodaSound = [NSData dataWithContentsOfURL:chewieSoundURL];
-//    
-//    UIImage *yodaImage = [UIImage imageNamed:@"chewbacca.jpg"];
-//    
-//    
-//    
-//    YOSStarWarsCharacter *chewbacca = [YOSStarWarsCharacter StarWarsWithAlias:@"Chewbacca"
-//                                                                     wikiPage:chewieURL                                                                   photo:chewieImage
-//                                                                    soundData:chewieSound];
-    
-    
-    return @[vader,chewbacca,r2,c3po];
-    
-    
-}
-
-
--(NSArray*) arrayOfControllers{
-    
-    NSArray *models = [self arrayOfModels];
-    
-    NSMutableArray *controllers = [NSMutableArray arrayWithCapacity:[models count]];
-    
-    for ( YOSStarWarsCharacter *character in models ){
-        
-        YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:character];
-        
-        UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:charVC ];
-        
-        [controllers addObject:navVC];
-    }
-    
-    return controllers;
-}
+//-(NSArray*) arrayOfModels
+//{
+//        //crear personajes
+//
+//    NSBundle *bundle = [NSBundle mainBundle];
+//
+//    NSURL *vaderURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+//
+//
+//    NSURL *vaderSoundURL = [bundle URLForResource:@"vader"
+//                               withExtension:@"caf"];
+//    NSData *vaderSound = [NSData dataWithContentsOfURL:vaderSoundURL];
+//
+//    UIImage *vaderImage = [UIImage imageNamed:@"darthVader.jpg"];
+//
+//
+//
+//    YOSStarWarsCharacter *vader = [YOSStarWarsCharacter starWarsWithName:@"Anakin SkyWalker"
+//                                                                   alias:@"Darth Vader"
+//                                                                wikiPage:vaderURL
+//                                                                   photo:vaderImage
+//                                                               soundData:vaderSound];
+//
+//
+//    // C3-PO
+//
+//    NSURL *c3poURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+//
+//    NSURL *c3poSoundURL = [bundle URLForResource:@"c3po"
+//                               withExtension:@"caf"];
+//    NSData *c3poSound = [NSData dataWithContentsOfURL:c3poSoundURL];
+//
+//    UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg"];
+//
+//
+//
+//    YOSStarWarsCharacter *c3po = [YOSStarWarsCharacter starWarsWithAlias:@"C -3PO"
+//                                                                wikiPage:c3poURL                                                                   photo:c3poImage
+//                                                               soundData:c3poSound];
+//
+//    // R2
+//
+//    NSURL *r2URL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+//
+//    NSURL *r2SoundURL = [bundle URLForResource:@"r2-d2"
+//                                   withExtension:@"caf"];
+//    NSData *r2Sound = [NSData dataWithContentsOfURL:r2SoundURL];
+//
+//    UIImage *r2Image = [UIImage imageNamed:@"R2-D2.jpg"];
+//
+//
+//
+//    YOSStarWarsCharacter *r2 = [YOSStarWarsCharacter starWarsWithAlias:@"R2"
+//                                                                wikiPage:r2URL                                                                   photo:r2Image
+//                                                               soundData:r2Sound];
+//
+//
+//
+//    //Chewie
+//
+//    NSURL *chewieURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+//
+//    NSURL *chewieSoundURL = [bundle URLForResource:@"chewbacca"
+//                                   withExtension:@"caf"];
+//    NSData *chewieSound = [NSData dataWithContentsOfURL:chewieSoundURL];
+//
+//    UIImage *chewieImage = [UIImage imageNamed:@"chewbacca.jpg"];
+//
+//
+//
+//    YOSStarWarsCharacter *chewbacca = [YOSStarWarsCharacter starWarsWithAlias:@"Chewbacca"
+//                                                                wikiPage:chewieURL                                                                   photo:chewieImage
+//                                                               soundData:chewieSound];
+//
+//
+////    //Yoda
+////
+////    NSURL *yodaURL = [NSURL URLWithString:@"http://es.wikipedia.org/wiki/Darth_Vader"];
+////
+////    NSURL *yodaSoundURL = [bundle URLForResource:@"chewbacca"
+////                                     withExtension:@"caf"];
+////    NSData *yodaSound = [NSData dataWithContentsOfURL:chewieSoundURL];
+////
+////    UIImage *yodaImage = [UIImage imageNamed:@"chewbacca.jpg"];
+////
+////
+////
+////    YOSStarWarsCharacter *chewbacca = [YOSStarWarsCharacter StarWarsWithAlias:@"Chewbacca"
+////                                                                     wikiPage:chewieURL                                                                   photo:chewieImage
+////                                                                    soundData:chewieSound];
+//
+//
+//    return @[vader,chewbacca,r2,c3po];
+//
+//
+//}
+//
+//
+//-(NSArray*) arrayOfControllers{
+//
+//    NSArray *models = [self arrayOfModels];
+//
+//    NSMutableArray *controllers = [NSMutableArray arrayWithCapacity:[models count]];
+//
+//    for ( YOSStarWarsCharacter *character in models ){
+//
+//        YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:character];
+//
+//        UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:charVC ];
+//
+//        [controllers addObject:navVC];
+//    }
+//
+//    return controllers;
+//}
 
 
 

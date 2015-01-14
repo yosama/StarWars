@@ -12,12 +12,8 @@
 
 @interface YOSStarWarsUniverse : NSObject
 
-@property (readonly, nonatomic) NSUInteger *imperialCount;
-@property (readonly, nonatomic) NSUInteger *rebelCount;
-
-
-
-
+@property (readonly, nonatomic) NSUInteger imperialCount;
+@property (readonly, nonatomic) NSUInteger rebelCount;
 
 -(YOSStarWarsCharacter*) imperialCharacterAtIndex:(NSUInteger) index;
 -(YOSStarWarsCharacter*) rebelCharacterAtIndex:(NSUInteger) index;

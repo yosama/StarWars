@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DBA0E4741A6676C000214AEC /* YOSStarWarsUniverse.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA0E4731A6676C000214AEC /* YOSStarWarsUniverse.m */; };
+		DBA0E4771A6685DE00214AEC /* YOSStarWarsUniverseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBA0E4761A6685DE00214AEC /* YOSStarWarsUniverseViewController.m */; };
 		DBD6DA091A651AB7003E54DA /* CafPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA081A651AB7003E54DA /* CafPlayer.m */; };
 		DBD6DA0E1A6520C9003E54DA /* YOSWikiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD6DA0C1A6520C9003E54DA /* YOSWikiViewController.m */; };
 		DBD6DA0F1A6520C9003E54DA /* YOSWikiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBD6DA0D1A6520C9003E54DA /* YOSWikiViewController.xib */; };
@@ -50,6 +51,8 @@
 /* Begin PBXFileReference section */
 		DBA0E4721A6676C000214AEC /* YOSStarWarsUniverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSStarWarsUniverse.h; sourceTree = "<group>"; };
 		DBA0E4731A6676C000214AEC /* YOSStarWarsUniverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOSStarWarsUniverse.m; sourceTree = "<group>"; };
+		DBA0E4751A6685DE00214AEC /* YOSStarWarsUniverseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSStarWarsUniverseViewController.h; sourceTree = "<group>"; };
+		DBA0E4761A6685DE00214AEC /* YOSStarWarsUniverseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YOSStarWarsUniverseViewController.m; sourceTree = "<group>"; };
 		DBD6DA071A651AB7003E54DA /* CafPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CafPlayer.h; sourceTree = "<group>"; };
 		DBD6DA081A651AB7003E54DA /* CafPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CafPlayer.m; sourceTree = "<group>"; };
 		DBD6DA0B1A6520C9003E54DA /* YOSWikiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YOSWikiViewController.h; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 				DBFE64101A63F702009591B6 /* YOSCharacterViewController.h */,
 				DBFE64111A63F702009591B6 /* YOSCharacterViewController.m */,
 				DBFE64121A63F702009591B6 /* YOSCharacterViewController.xib */,
+				DBA0E4751A6685DE00214AEC /* YOSStarWarsUniverseViewController.h */,
+				DBA0E4761A6685DE00214AEC /* YOSStarWarsUniverseViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA0E4771A6685DE00214AEC /* YOSStarWarsUniverseViewController.m in Sources */,
 				DBFE63F21A63E507009591B6 /* AppDelegate.m in Sources */,
 				DBFE640E1A63F097009591B6 /* YOSStarWarsCharacter.m in Sources */,
 				DBA0E4741A6676C000214AEC /* YOSStarWarsUniverse.m in Sources */,
@@ -462,6 +468,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StarWars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -472,6 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StarWars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

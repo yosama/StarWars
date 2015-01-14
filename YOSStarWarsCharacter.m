@@ -12,7 +12,7 @@
 
 
 
-+(instancetype) StarWarsWithName:(NSString*) pName alias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData
++(instancetype) starWarsWithName:(NSString*) pName alias:(NSString*) pAlias wikiPage:(NSURL*) pWikiPage photo: (UIImage*) pPhoto soundData: (NSData*) pSoundData
 {
     return  [[self alloc]initWithName:pName
                                 alias:pAlias
@@ -23,7 +23,7 @@
 
 
 
-+(instancetype) StarWarsWithAlias:(NSString *)pAlias wikiPage:(NSURL *)pWikiPage photo:(UIImage *)pPhoto soundData:(NSData *)pSoundData{
++(instancetype) starWarsWithAlias:(NSString *)pAlias wikiPage:(NSURL *)pWikiPage photo:(UIImage *)pPhoto soundData:(NSData *)pSoundData{
     return  [[self alloc]initWithAlias:pAlias
                              wikiPage:pWikiPage
                                 photo:pPhoto

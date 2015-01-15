@@ -10,10 +10,11 @@
 @import UIKit;
 #import "YOSStarWarsCharacter.h"
 #import "CafPlayer.h"
+#import "YOSStarWarsUniverseViewController.h"
 
 
 
-@interface YOSCharacterViewController : UIViewController <UISplitViewControllerDelegate>
+@interface YOSCharacterViewController : UIViewController <UISplitViewControllerDelegate,YOSStarWarsUniverseViewControllerDelegate>
 
 
 @property (strong, nonatomic) YOSStarWarsCharacter *model;

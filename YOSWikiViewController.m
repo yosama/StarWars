@@ -7,6 +7,8 @@
 //
 
 #import "YOSWikiViewController.h"
+#import "YOSStarWarsUniverseViewController.h"
+
 
 @interface YOSWikiViewController ()
 
@@ -46,12 +48,27 @@
 -(void) viewWillAppear:(BOOL)animated
 
 {
+    // Alta de las notificaciones
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc addObserver:self selector:@selector(notifyThatCharacterDidChange:)
+               name:CHARACTER_DID_CHANGE_CHANGE_NOTIFICATION_NAME
+             object:nil];
     
     [super viewWillAppear:animated];
     
+    
+    //Asignamos el delegado
     self.browser.delegate = self;
     
-    [self.browser loadRequest:[ NSURLRequest requestWithURL:self.model.wikiPage]];
+    [self syncViewtoModel];
+}
+
+
+-(void) viewWillDisappear:(BOOL)animated{
+     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self];
 }
 
 
@@ -61,6 +78,7 @@
 {
     [self.activityIndicator stopAnimating];
     [self.activityIndicator hidesWhenStopped];
+    self.activityIndicator.hidden = YES;
 }
 
 -(BOOL) webView:(UIWebView *)webView
@@ -75,4 +93,27 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     }
 }
 
+
+#pragma mark - Notification
+
+-(void) notifyThatCharacterDidChange:(NSNotification*) n{
+    //Estraigo el personaje
+    YOSStarWarsCharacter *newModel = [n.userInfo objectForKey:CHARACTER_KEY];
+    
+    // Cambiar modelo
+    self.model = newModel;
+    
+    //sincronizar vista
+    [self syncViewtoModel];
+    
+}
+
+
+-(void) syncViewtoModel{
+    self.activityIndicator.hidden = NO;
+    [self.activityIndicator startAnimating];
+    NSURLRequest *r =[NSURLRequest requestWithURL:self.model.wikiPage];
+    
+    [self.browser loadRequest:r];
+}
 @end

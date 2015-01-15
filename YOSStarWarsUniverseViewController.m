@@ -176,14 +176,27 @@
         character = [self.model rebelCharacterAtIndex:indexPath.row];
     }
     
-    //Crear un characterVC
     
-    YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc]
-                                          initWithModel:character];
+    // Notificar el delegado
+    if ([self.delegate respondsToSelector:@selector(starWarsUniverseViewController:didSelectCharacter:)]){
+        // Entiende el mensaje, se lo mando
+        [self.delegate starWarsUniverseViewController:self didSelectCharacter:character];
+        
+    }
     
-    //Pushearlo
-    [self.navigationController pushViewController:charVC
-                                         animated:NO];
+    // Eviamos una notificacion
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    NSDictionary *info = @{CHARACTER_KEY:character};
+    
+    NSNotification *n = [NSNotification notificationWithName:CHARACTER_DID_CHANGE_CHANGE_NOTIFICATION_NAME
+                                                      object:self
+                                                    userInfo:info];
+    [nc postNotification:n];
+    
+    
+    
+   
 }
 
 @end

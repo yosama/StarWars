@@ -35,16 +35,19 @@
     [self syncModelToView];
 }
 
+#pragma mark - Utils
 
 - (void) syncModelToView
 {
     self.imPhoto.image = self.model.photo;
+    self.title = self.model.alias;
 }
 
 
 #pragma mark - Actions
 
--(IBAction)playSound:(id)sender{
+-(IBAction)playSound:(id)sender
+{
     NSLog(@" I am your father!");
     
     self.player = [CafPlayer cafPlayer];
@@ -52,7 +55,8 @@
 }
 
 
--(IBAction)displayWikipedia:(id)sender{
+-(IBAction)displayWikipedia:(id)sender
+{
     // Creo un WebViewController
     YOSWikiViewController *wikiVC = [[YOSWikiViewController alloc]initWithModel:self.model ];
     
@@ -62,7 +66,8 @@
 }
 
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     
 }
@@ -70,7 +75,8 @@
 
 #pragma mark - UISplitViewControllerDelegate
 
--(void) splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode {
+-(void) splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode
+{
     
     if (displayMode == UISplitViewControllerDisplayModePrimaryHidden){
         //Pongo boton en barra de navegacion
@@ -81,6 +87,19 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
 }
+
+
+#pragma mark - YOSStarWarsUniverseViewControllerDelegate
+
+-(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController *)uVC didSelectCharacter:(YOSStarWarsCharacter *)character
+{
+    
+    // me dicen que cambie mi modelo
+    self.model = character;
+    [self syncModelToView];
+}
+
+
 
 
 @end

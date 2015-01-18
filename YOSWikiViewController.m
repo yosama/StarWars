@@ -58,7 +58,6 @@
     
     [super viewWillAppear:animated];
     
-    
     //Asignamos el delegado
     self.browser.delegate = self;
     

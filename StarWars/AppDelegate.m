@@ -21,38 +21,16 @@
     // Creamos una Window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //Damos color a la ventana
-    self.window.backgroundColor = [UIColor orangeColor];
+    //Compruebo el tipo de pantalla
     
-    // Creo el modelo
-    YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
+    if ([[UIDevice currentDevice] userInterfaceIdiom]== UIUserInterfaceIdiomPad){
+        // caso para ipad
+        [self conigureForIpad];
+    } else{
+        // caso Iphone
+        [self conigureForIphone];
+    }
     
-    //Creo el controlador
-    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]
-                                                     initWithModel:model
-                                                     style:UITableViewStylePlain];
-    
-    YOSCharacterViewController *charcVC = [[YOSCharacterViewController alloc]
-                                           initWithModel:[model imperialCharacterAtIndex:0]];
-    
-    // Creo los combinadores
-    UINavigationController *tableNav = [[UINavigationController alloc] init];
-    [tableNav pushViewController:universeVC
-                        animated:NO];
-    
-    UINavigationController *charNav = [[UINavigationController alloc] init];
-    [charNav pushViewController:charcVC
-                       animated:NO];
-    
-    // Le paso al splitVC los combinadores creados
-    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
-    [splitVC setViewControllers:@[tableNav,charNav]];
-    
-    // Asigno el delegado
-    splitVC.delegate = charcVC;
-    universeVC.delegate = charcVC;
-    
-    self.window.rootViewController = splitVC;
     
     // La activamos
     [self.window makeKeyAndVisible];
@@ -90,6 +68,60 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Configuration
+
+-(void)conigureForIpad{
+    
+    // Creo el modelo
+    YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
+    
+    
+    //Creo el controlador
+    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]
+                                                     initWithModel:model
+                                                     style:UITableViewStylePlain];
+    
+    YOSCharacterViewController *charcVC = [[YOSCharacterViewController alloc]
+                                           initWithModel:[model imperialCharacterAtIndex:0]];
+    
+    // Creo los combinadores
+    UINavigationController *tableNav = [[UINavigationController alloc] init];
+    [tableNav pushViewController:universeVC
+                        animated:NO];
+    
+    UINavigationController *charNav = [[UINavigationController alloc] init];
+    [charNav pushViewController:charcVC
+                       animated:NO];
+    
+    // Le paso al splitVC los combinadores creados
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    [splitVC setViewControllers:@[tableNav,charNav]];
+    
+    // Asigno el delegado
+    splitVC.delegate = charcVC;
+    universeVC.delegate = charcVC;
+    
+    self.window.rootViewController = splitVC;
+}
+
+-(void)conigureForIphone{
+    
+    // Crear el modelo
+     YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
+    
+    //Crear controlador
+    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]initWithModel:model style:UITableViewStylePlain];
+    
+    // Crear combinador
+    UINavigationController *navVC = [[UINavigationController alloc]init];
+    [navVC pushViewController:universeVC
+                     animated:NO];
+    
+    universeVC.delegate = universeVC;
+    self.window.rootViewController = navVC;
+    
 }
 
 @end

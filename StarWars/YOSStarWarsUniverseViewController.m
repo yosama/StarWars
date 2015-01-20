@@ -201,14 +201,16 @@
 
 #pragma mark - YOSStarWarsUniverseViewControllerDelegate
 
--(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController*)uVC didSelectCharacter:(YOSStarWarsCharacter *)character
+-(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController*)uVC
+                   didSelectCharacter:(YOSStarWarsCharacter*)character
 {
     YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:character];
     
-    UINavigationController *navVC = [[UINavigationController alloc] init];
+    //UINavigationController *navVC = [[UINavigationController alloc] init];
     
-    [navVC pushViewController:charVC
-                     animated:NO];
+   [self.navigationController pushViewController:charVC
+                                        animated:YES];
+    
     
 }
 

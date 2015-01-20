@@ -76,7 +76,7 @@
 -(void) webViewDidFinishLoad:(UIWebView *)webView
 {
     [self.activityIndicator stopAnimating];
-    [self.activityIndicator hidesWhenStopped];
+    //[self.activityIndicator hidesWhenStopped];
     self.activityIndicator.hidden = YES;
 }
 

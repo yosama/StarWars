@@ -112,7 +112,8 @@
      YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
     
     //Crear controlador
-    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]initWithModel:model style:UITableViewStylePlain];
+    YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]initWithModel:model
+                                                                                                      style:UITableViewStylePlain];
     
     // Crear combinador
     UINavigationController *navVC = [[UINavigationController alloc]init];

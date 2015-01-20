@@ -48,7 +48,7 @@
 
 -(IBAction)playSound:(id)sender
 {
-    NSLog(@" I am your father!");
+   
     
     self.player = [CafPlayer cafPlayer];
     [self.player playSoundData:self.model.soundData];
@@ -75,7 +75,8 @@
 
 #pragma mark - UISplitViewControllerDelegate
 
--(void) splitViewController:(UISplitViewController *)svc willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode
+-(void) splitViewController:(UISplitViewController *)svc
+    willChangeToDisplayMode:(UISplitViewControllerDisplayMode)displayMode
 {
     
     if (displayMode == UISplitViewControllerDisplayModePrimaryHidden){
@@ -91,7 +92,8 @@
 
 #pragma mark - YOSStarWarsUniverseViewControllerDelegate
 
--(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController *)uVC didSelectCharacter:(YOSStarWarsCharacter *)character
+-(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController *)uVC
+                   didSelectCharacter:(YOSStarWarsCharacter *)character
 {
     
     // me dicen que cambie mi modelo

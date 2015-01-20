@@ -38,6 +38,8 @@
     }
 
 }
+
+
 -(void) playFile:(NSURL *) aSoundFile{
     
     // NSData representa un buffer de datos. Se usa para leer archivos

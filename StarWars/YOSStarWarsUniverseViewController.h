@@ -21,17 +21,19 @@
 @protocol YOSStarWarsUniverseViewControllerDelegate <NSObject>
 
 @optional
--(void) starWarsUniverseViewController:(YOSStarWarsUniverseViewController*) uVC didSelectCharacter:(YOSStarWarsCharacter*)character;
+-(void) starWarsUniverseViewController:(YOSStarWarsUniverseViewController*) uVC
+                    didSelectCharacter:(YOSStarWarsCharacter*)character;
 
 
--(void) starWarsUniverseViewController:(YOSStarWarsUniverseViewController*) uVC willSelectCharacter:(YOSStarWarsCharacter*)character;
+-(void) starWarsUniverseViewController:(YOSStarWarsUniverseViewController*) uVC
+                   willSelectCharacter:(YOSStarWarsCharacter*)character;
 
 
 @end
 
 
 
-@interface YOSStarWarsUniverseViewController : UITableViewController
+@interface YOSStarWarsUniverseViewController : UITableViewController<YOSStarWarsUniverseViewControllerDelegate>
 
 @property (weak,nonatomic) id<YOSStarWarsUniverseViewControllerDelegate> delegate;
 

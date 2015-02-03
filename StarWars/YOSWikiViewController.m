@@ -65,8 +65,10 @@
 }
 
 
--(void) viewWillDisappear:(BOOL)animated{
-     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+-(void) viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
 }
 

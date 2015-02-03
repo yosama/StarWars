@@ -28,6 +28,8 @@
     return self;
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -88,6 +90,13 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
 }
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
+    
+    self.navigationItem.rightBarButtonItem = barButtonItem;
+}
+
+
 
 
 #pragma mark - YOSStarWarsUniverseViewControllerDelegate

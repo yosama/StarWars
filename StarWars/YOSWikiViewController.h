@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 yos. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "YOSStarWarsCharacter.h"
 
 @interface YOSWikiViewController : UIViewController<UIWebViewDelegate>
@@ -16,6 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *browser;
 
 // Designated
--(id) initWithModel:(YOSStarWarsCharacter*) model;
+-(id) initWithModel:(YOSStarWarsCharacter *) model;
 
 @end

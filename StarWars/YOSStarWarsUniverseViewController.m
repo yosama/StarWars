@@ -19,7 +19,7 @@
 @implementation YOSStarWarsUniverseViewController
 
 
--(id) initWithModel: (YOSStarWarsUniverse*)model style:(UITableViewStyle) style{
+-(id) initWithModel: (YOSStarWarsUniverse*)model style:(UITableViewStyle) style {
     
     if (self = [super initWithStyle:style]){
         
@@ -31,19 +31,21 @@
 }
 
 
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-   
 
 }
+
 
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
+
 
 
 #pragma mark - Table view data source
@@ -55,12 +57,13 @@
 }
 
 
--(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+-(NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    if (section == IMPERIALS_SECTION){
+    if (section == IMPERIALS_SECTION) {
         // Section EMPIRE
         return @"Empire";
-    }else{
+    } else {
         // Section REBEL ALLIANCE
         return @"Rebel Alliance";
         
@@ -87,7 +90,7 @@
     
     // Averiguar de que personaje me esta hablando
     YOSStarWarsCharacter *character;
-    if (indexPath.section == IMPERIALS_SECTION){
+    if (indexPath.section == IMPERIALS_SECTION) {
         
         character = [self.model imperialCharacterAtIndex:indexPath.row];
     } else {
@@ -97,11 +100,10 @@
     // Crear una celda
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     
-    if (cell == nil){
+    if (!cell) {
         // tengo que crear la celda a pelo
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleSubtitle
-                reuseIdentifier:cellId];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle
+                                     reuseIdentifier:cellId];
         
     }
     
@@ -160,23 +162,24 @@
  */
 
 
+
 #pragma mark - Table Delegate
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     // Averiguar de que persona se trata
     YOSStarWarsCharacter *character;
     
-    if (indexPath.section == IMPERIALS_SECTION){
+    if (indexPath.section == IMPERIALS_SECTION) {
         
         character = [self.model imperialCharacterAtIndex:indexPath.row];
-    } else{
+    } else {
         character = [self.model rebelCharacterAtIndex:indexPath.row];
     }
     
-    
     // Notificar el delegado
-    if ([self.delegate respondsToSelector:@selector(starWarsUniverseViewController:didSelectCharacter:)]){
+    if ([self.delegate respondsToSelector:@selector(starWarsUniverseViewController:didSelectCharacter:)]) {
         // Entiende el mensaje, se lo mando
         [self.delegate starWarsUniverseViewController:self didSelectCharacter:character];
         
@@ -197,18 +200,19 @@
    
 }
 
+
+
 #pragma mark - YOSStarWarsUniverseViewControllerDelegate
 
--(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController*)uVC
-                   didSelectCharacter:(YOSStarWarsCharacter*)character
-{
+
+-(void)starWarsUniverseViewController:(YOSStarWarsUniverseViewController*)uVC didSelectCharacter:(YOSStarWarsCharacter*)character {
+    
     YOSCharacterViewController *charVC = [[YOSCharacterViewController alloc] initWithModel:character];
     
     //UINavigationController *navVC = [[UINavigationController alloc] init];
     
    [self.navigationController pushViewController:charVC
                                         animated:YES];
-    
     
 }
 

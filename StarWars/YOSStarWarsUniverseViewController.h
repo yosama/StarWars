@@ -6,8 +6,7 @@
 //  Copyright (c) 2015 yos. All rights reserved.
 //
 
-
-
+// Constant
 #define REBEL_SECTION 1
 #define IMPERIALS_SECTION 0
 #define CHARACTER_DID_CHANGE_CHANGE_NOTIFICATION_NAME @"CHARACTER"

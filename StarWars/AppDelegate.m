@@ -22,7 +22,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Compruebo el tipo de pantalla
-    
     if ([[UIDevice currentDevice] userInterfaceIdiom]== UIUserInterfaceIdiomPad){
         // caso para ipad
         [self conigureForIpad];
@@ -30,7 +29,6 @@
         // caso Iphone
         [self conigureForIphone];
     }
-    
     
     // La activamos
     [self.window makeKeyAndVisible];
@@ -70,13 +68,15 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+
 #pragma mark - Configuration
 
--(void)conigureForIpad{
+
+-(void)conigureForIpad {
     
     // Creo el modelo
     YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];
-    
     
     //Creo el controlador
     YOSStarWarsUniverseViewController *universeVC = [[YOSStarWarsUniverseViewController alloc]
@@ -106,7 +106,9 @@
     self.window.rootViewController = splitVC;
 }
 
--(void)conigureForIphone{
+
+
+-(void)conigureForIphone {
     
     // Crear el modelo
      YOSStarWarsUniverse *model = [[YOSStarWarsUniverse alloc]init];

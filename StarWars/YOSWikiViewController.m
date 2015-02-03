@@ -18,17 +18,16 @@
 
 
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
 
 
--(id) initWithModel:(YOSStarWarsCharacter*) model
-{
+
+-(id) initWithModel:(YOSStarWarsCharacter *) model {
     
-    if (self = [super initWithNibName:nil bundle:nil]){
+    if (self = [super initWithNibName:nil bundle:nil]) {
         
         _model = model;
         self.title =@"wikipedia";
@@ -37,17 +36,17 @@
 }
 
 
+
 // Aqui se crea la vista pero sus valores estan apuntan a nil
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
 }
 
-// La vista esta creada y ya esta lista para ser cargada
--(void) viewWillAppear:(BOOL)animated
 
-{
+
+// La vista esta creada y ya esta lista para ser cargada
+-(void) viewWillAppear:(BOOL)animated {
     // Alta de las notificaciones
     
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -65,6 +64,7 @@
 }
 
 
+
 -(void) viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
@@ -73,31 +73,33 @@
 }
 
 
+
 #pragma mark - UIWebViewDelegate
 
--(void) webViewDidFinishLoad:(UIWebView *)webView
-{
+-(void) webViewDidFinishLoad:(UIWebView *)webView {
+
     [self.activityIndicator stopAnimating];
     //[self.activityIndicator hidesWhenStopped];
     self.activityIndicator.hidden = YES;
 }
 
--(BOOL) webView:(UIWebView *)webView
-shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType{
+
+
+-(BOOL) webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
-    if (navigationType == UIWebViewNavigationTypeLinkClicked  ||
-        navigationType == UIWebViewNavigationTypeFormSubmitted){
+    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeFormSubmitted) {
         return NO;
-    } else{
+    } else {
         return YES;
     }
 }
 
 
+
 #pragma mark - Notification
 
--(void) notifyThatCharacterDidChange:(NSNotification*) n{
+
+-(void) notifyThatCharacterDidChange:(NSNotification*) n {
     //Estraigo el personaje
     YOSStarWarsCharacter *newModel = [n.userInfo objectForKey:CHARACTER_KEY];
     
@@ -110,11 +112,14 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 }
 
 
--(void) syncViewtoModel{
+-(void) syncViewtoModel {
+   
     self.activityIndicator.hidden = NO;
     [self.activityIndicator startAnimating];
     NSURLRequest *r =[NSURLRequest requestWithURL:self.model.wikiPage];
     
     [self.browser loadRequest:r];
 }
+
+
 @end

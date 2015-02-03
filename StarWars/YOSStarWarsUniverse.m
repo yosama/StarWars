@@ -17,12 +17,13 @@
 
 @implementation YOSStarWarsUniverse
 
+
+
 #pragma mark - Init
 
--(id) init
-{
+-(id) init {
     
-    if (self = [super init]){
+    if (self = [super init]) {
         
         //crear personajes
         
@@ -55,7 +56,8 @@
         UIImage *c3poImage = [UIImage imageNamed:@"c3po.jpg"];
         
         YOSStarWarsCharacter *c3po = [YOSStarWarsCharacter starWarsWithAlias:@"C -3PO"
-                                                                    wikiPage:c3poURL                                                                   photo:c3poImage
+                                                                    wikiPage:c3poURL
+                                                                       photo:c3poImage
                                                                    soundData:c3poSound];
         
         // R2
@@ -69,7 +71,8 @@
         UIImage *r2Image = [UIImage imageNamed:@"R2-D2.jpg"];
         
         YOSStarWarsCharacter *r2 = [YOSStarWarsCharacter starWarsWithAlias:@"R2-D2"
-                                                                  wikiPage:r2URL                                                                   photo:r2Image
+                                                                  wikiPage:r2URL
+                                                                     photo:r2Image
                                                                  soundData:r2Sound];
         
         
@@ -85,7 +88,8 @@
         UIImage *chewieImage = [UIImage imageNamed:@"chewbacca.jpg"];
         
         YOSStarWarsCharacter *chewbacca = [YOSStarWarsCharacter starWarsWithAlias:@"Chewbacca"
-                                                                         wikiPage:chewieURL                                                                   photo:chewieImage
+                                                                         wikiPage:chewieURL
+                                                                            photo:chewieImage
                                                                         soundData:chewieSound];
         
         // Yoda
@@ -146,28 +150,31 @@
 }
 
 
--(YOSStarWarsCharacter*) imperialCharacterAtIndex:(NSUInteger) index{
+
+-(YOSStarWarsCharacter*) imperialCharacterAtIndex:(NSUInteger) index {
     
     return [self.imperials objectAtIndex:index];
     
 }
 
 
--(YOSStarWarsCharacter*) rebelCharacterAtIndex:(NSUInteger) index{
+
+-(YOSStarWarsCharacter*) rebelCharacterAtIndex:(NSUInteger) index {
     
     
     return [self.rebels objectAtIndex:index];
 }
 
 
+
 #pragma mark - Getter properties
 
--(NSUInteger) rebelCount{
+-(NSUInteger) rebelCount {
     
     return [self.rebels count];
 }
 
--(NSUInteger) imperialCount{
+-(NSUInteger) imperialCount {
     
     return [self.imperials count];
 }
